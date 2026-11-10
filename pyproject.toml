@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvrp-planning"
+version = "0.1.0"
+description = "CVRP resuelto con planning automatizado (ENHSP, Fast Downward) contra PyVRP"
+requires-python = ">=3.10"
+dependencies = [
+  "vrplib>=2.0",
+  "pyvrp>=0.14",
+  "up-enhsp",
+  "up-fast-downward",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+cvrp-exp = "cvrp_planning.experimento:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
